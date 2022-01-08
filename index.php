@@ -3,11 +3,11 @@
 ?>
     <div class="row main mx-5 my-5">
         <div class="col-12">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12">
                     <h1 class="px-2 py-2 text-danger text-center">HỆ THỐNG QUẢN LÝ NGÂN HÀNG MÁU</h1>
                 </div>
-            </div>
+            </div> -->
             
             <div class="row">
                 <div class="col-4">
