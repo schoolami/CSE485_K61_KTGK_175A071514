@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-danger text-center">SỬA THÔNG TIN NGƯỜI HIẾN MÁU</h1>
+                    <h1 class="text-danger text-center">Sửa Thông Tin Độc Giả</h1>
                 </div>
             </div>
 
@@ -15,37 +15,41 @@
                 <div class="col-12">
                     <form action="" method="POST">
                     <?php
-                        $id_need = $_GET['bd_id'];
-                        $sql = "SELECT * FROM blood_donor WHERE bd_id=$id_need";
+                        $id = $_GET['madg'];
+                        $sql = "SELECT * FROM docgia WHERE madg=$id";
                         $result = mysqli_query($conn,$sql);
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
                     ?>
                         <div class="mb-3">
-                            <label for="text1" class="form-label">Tên người hiến máu</label>
-                            <input type="text" class="form-control" id="text1" name="txt1" required placeholder="Nguyễn Văn A" value="<?php echo $row['bd_name'] ;?>">
+                            <label for="text1" class="form-label">Họ Và Tên</label>
+                            <input type="text" class="form-control" id="text1" name="txt1" required value="<?php echo $row ['hovaten']; ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="text2" class="form-label">Giới tính</label>
-                            <input type="text" class="form-control" id="text2" name="txt2" required placeholder="Nam" value="<?php echo $row['bd_sex'] ;?>">
+                            <label for="text2" class="form-label">Giới Tính</label>
+                            <input type="text" class="form-control" id="text2" name="txt2" required value="<?php echo $row ['gioitinh']; ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="text3" class="form-label">Tuổi</label>
-                            <input type="number" class="form-control" id="text3" name="txt3" required placeholder="18" value="<?php echo $row['bd_age'] ;?>">
+                            <label for="text3" class="form-label">Năm Sinh</label>
+                            <input type="number" class="form-control" id="text3" name="txt3" required value="<?php echo $row ['namsinh']; ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="text4" class="form-label">Nhóm máu</label>
-                            <input type="text" class="form-control" id="text4" name="txt4" required placeholder="AB" value="<?php echo $row['bd_bgroup'] ;?>">
+                            <label for="text4" class="form-label">Nghệ Nghiệp</label>
+                            <input type="text" class="form-control" id="text4" name="txt4" required value="<?php echo $row ['nghenghiep']; ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="text5" class="form-label">Ngày đăng ký hiến máu</label>
-                            <input type="date" class="form-control" id="text5" name="txt5" required value="<?php echo $row['bd_reg_date'] ;?>">
+                            <label for="text5" class="form-label">Ngày Cấp Thẻ</label>
+                            <input type="date" class="form-control" id="text5" name="txt5" required value="<?php echo $row ['ngaycapthe']; ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="text6" class="form-label">Số điện thoại</label>
-                            <input type="text" class="form-control" id="text6" name="txt6" required placeholder="0989723212" value="<?php echo $row['bd_phno'] ;?>">
+                            <label for="text6" class="form-label">Ngày Hết Hạn</label>
+                            <input type="date" class="form-control" id="text6" name="txt6" required value="<?php echo $row ['ngayhethan']; ?>">
                         </div>
-                        <button type="sumbit" class="btn btn-primary mb-2 text-white" name="btn-edit">THAY ĐỔI</button>
+                        <div class="mb-3">
+                            <label for="text7" class="form-label">Địa Chỉ</label>
+                            <input type="text" class="form-control" id="text7" name="txt7" required value="<?php echo $row ['diachi']; ?>">
+                        </div>
+                        <button type="sumbit" class="btn btn-primary mb-2 text-white" name="btn-edit">XÁC NHẬN</button>
                     <?php
                         }
                     }
@@ -59,9 +63,10 @@
                             $txt4 = $_POST['txt4'];
                             $txt5 = $_POST['txt5'];
                             $txt6 = $_POST['txt6'];
+                            $txt7 = $_POST['txt7'];
 
                             //B2 : Thực hiện truy vấn
-                            $sql = "UPDATE `blood_donor` SET `bd_name` = '$txt1', `bd_sex` = '$txt2', `bd_age` = '$txt3', `bd_bgroup`='$txt4', `bd_reg_date` = '$txt5', `bd_phno`='$txt6'  WHERE `blood_donor`.`bd_id` = $id_need";
+                            $sql = "UPDATE `docgia` SET `hovaten` = '$txt1', `gioitinh` = '$txt2', `namsinh` = '$txt3', `nghenghiep`='$txt4', `ngaycapthe` = '$txt5', `ngayhethan`='$txt6', `diachi` ='$txt7' WHERE `docgia`.`madg` = $id";
                             $result = mysqli_query($conn,$sql);
                             //B3: Xử lý kết quả nếu mysqli_query thành công trả về true
                             if($result == true){

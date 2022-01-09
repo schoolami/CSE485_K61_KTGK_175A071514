@@ -6,14 +6,16 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="px-2 py-2 text-danger text-center">HỆ THỐNG QUẢN LÝ NGÂN HÀNG MÁU</h1>
+                    <h1 class="px-2 py-2 text-danger text-center">Hệ Thống Quản Lý Thư Viện</h1>
                 </div>
             </div>
             
             <div class="row">
-                <div class="col-4">
-                    <a href="./add.php" class="bg-success px-2 py-2 text-white text-decoration-none shadow">THÊM</a>
+                <div class="col-4">   
                 </div>
+                <div class="col-4"></div>
+                <div class="col-2"></div>
+                <div class="col-2"><a href="./add.php" class="bg-info px-2 py-2 text-white text-decoration-none shadow">THÊM</a></div>
             </div>
 
             <div class="row">
@@ -21,38 +23,37 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">STT</th>
-                                <th scope="col">Mã người hiến máu</th>
-                                <th scope="col">Họ tên</th>
-                                <th scope="col">Giới tính</th>
-                                <th scope="col">Tuổi</th>
-                                <th scope="col">Nhóm máu</th>
-                                <th scope="col">Ngày đăng ký</th>
-                                <th scope="col">Số điện thoại</th>
-                                <th scope="col" colspan="2">Hành động</th>
+                                <th scope="col">Mã Độc Giải</th>
+                                <th scope="col">Họ Và Tên</th>
+                                <th scope="col">Giới Tính</th>
+                                <th scope="col">Năm Sinh</th>
+                                <th scope="col">Nghệ Nghiệp</th>
+                                <th scope="col">Ngày Cấp Thẻ</th>
+                                <th scope="col">Ngày Hết Hạn</th>
+                                <th scope="col">Địa Chỉ</th>
+                                <th scope="col" colspan="2">Thực Hiện</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                $i = 1;
                                 include("../define.php");
                                 include("../config.php");
-                                $sql = "SELECT * FROM blood_donor";
+                                $sql = "SELECT * FROM docgia";
                                 $result = mysqli_query($conn,$sql);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                             ?>
                             <tr>
-                                <th scope="row"><?php echo $i; $i++ ?></th>
-                                <td><?php echo $row['bd_id'] ;?></td>
-                                <td><?php echo $row['bd_name'] ;?></td>
-                                <td><?php echo $row['bd_sex'] ;?></td>
-                                <td><?php echo $row['bd_age'] ;?></td>
-                                <td><?php echo $row['bd_bgroup'] ;?></td>
-                                <td><?php echo $row['bd_reg_date'] ;?></td>
-                                <td><?php echo $row['bd_phno'] ;?></td>
-                                <td><a href="./update.php?bd_id=<?php echo $row['bd_id']; ?>"><i class="fas fa-edit"></i></a></td>
-                                <td><a href="./delete.php?bd_id=<?php echo $row['bd_id']; ?>" class="text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                                <td><?php echo $row['madg'] ;?></td>
+                                <td><?php echo $row['hovaten'] ;?></td>
+                                <td><?php echo $row['gioitinh'] ;?></td>
+                                <td><?php echo $row['namsinh'] ;?></td>
+                                <td><?php echo $row['nghenghiep'] ;?></td>
+                                <td><?php echo $row['ngaycapthe'] ;?></td>
+                                <td><?php echo $row['ngayhethan'] ;?></td>
+                                <td><?php echo $row['diachi'] ;?></td>
+                                <td><a href="./update.php?madg=<?php echo $row['madg']; ?>">Sửa</a></td>
+                                <td><a href="./delete.php?madg=<?php echo $row['madg']; ?>" class="text-danger">Xóa</a></td>
                             </tr>
                             <?php
                                     }

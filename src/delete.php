@@ -2,10 +2,10 @@
     include_once("../define.php");
     include_once("../config.php");
 
-    $id_need_del = $_GET['bd_id'];
+    $id = $_GET['madg'];
     
     //B2: Thực hiện câu truy vấn
-    $sql = "DELETE FROM blood_donor WHERE bd_id=$id_need_del";
+    $sql = "DELETE FROM docgia WHERE madg=$id";
     $result = mysqli_query($conn,$sql);
 
     //B3: Xử lý kết quả nếu mysqli_query thành công trả về true

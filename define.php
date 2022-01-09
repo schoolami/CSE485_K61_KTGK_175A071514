@@ -1,8 +1,8 @@
 <?php
-    define('SITEURL','http://localhost/CSE485_K61_KTGK_17A071514');
+    define('SITEURL','http://localhost/CSE485_K61_KTGK_175A071514');
     define('HOST','localhost');
     define('USER','root');
     define('PASS','');
-    define('DB','blood_bank_manager');
+    define('DB','175a071514_libraries');
     define('PORT','3306');
 ?>

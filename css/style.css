@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
 html{
     scroll-behavior: smooth;
+    font-family: 'Moon Dance', cursive !important; 
 }
 body{
-    background-image: url("../images/bg.png");
+    background-color: #f6e58d;
     display: flex;
     justify-content: center;
+}
+label{color:blueviolet !important;
 }
 .main{
     min-width: 900px;
     min-height: 600px;
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+;
 }
