@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-dander text-center">Có lỗi xảy ra vui lòng thực hiện lại</h1>
+                    <h1 class="text-dander text-center">Có lỗi xảy ra vui lòng thực hiện lại.</h1>
                 </div>
             </div>
 
